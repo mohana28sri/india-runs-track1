@@ -1,0 +1,48 @@
+# India Runs — Track 1: Data & AI Challenge
+# Submission Metadata
+
+team_name: "Algoriders"
+track: "Track 1 - Data & AI Challenge"
+
+members:
+  - name: "Mohana Sri R"
+    email: "rmohanasri28@gmail.com"
+    role: "Lead Developer"
+
+submission:
+  github_repo: "https://github.com/mohana28sri/india-runs-track1"
+  sandbox_url: "https://huggingface.co/spaces/mona28/india-runs-ranker"
+  submission_file: "submission.csv"
+  total_candidates_ranked: 100
+  candidates_processed: 100000
+  honeypots_detected: 65
+
+methodology:
+  approach: "Multi-signal weighted ranking pipeline with TF-IDF semantic matching"
+  components:
+    - name: "Skill Match Score"
+      weight: 0.35
+      description: "Proficiency × duration × endorsements × Redrob assessment score per skill"
+    - name: "Career & Title Score"
+      weight: 0.30
+      description: "Experience years, AI/ML title relevance, consulting-only penalty"
+    - name: "TF-IDF Semantic Match"
+      weight: 0.15
+      description: "Cosine similarity between candidate text and JD — catches hidden gems"
+    - name: "Career Trajectory"
+      weight: 0.10
+      description: "Detects upward movement toward AI/ML roles over career history"
+    - name: "Redrob Assessment Score"
+      weight: 0.10
+      description: "Verified platform skill scores weighted 2x for AI-relevant assessments"
+  behavioral_multiplier:
+    description: "11-signal composite: recency, open-to-work, response rate, GitHub, notice period, salary fit, location"
+  honeypot_detection:
+    description: "4-check validation: future dates, duration mismatch, claimed vs actual exp, expert skills with 0 months"
+
+runtime:
+  platform: "CPU only"
+  avg_runtime_seconds: 65
+  memory_gb: 3
+  external_api_calls: false
+  internet_required: false
